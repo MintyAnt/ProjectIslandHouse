@@ -1,0 +1,130 @@
+fileFormatVersion: 2
+guid: d907cefa72f654dad9f8611f32aa01a8
+ModelImporter:
+  serializedVersion: 15
+  fileIDToRecycleName:
+    100000: Group001
+    100002: //RootNode
+    100004: sofaArms
+    100006: sofaBack
+    100008: sofaBase
+    100010: sofaCushionBottomRight
+    100012: sofaCushionBottomRight 1
+    100014: sofaCushionMiddleLeft
+    100016: sofaCushionMiddleRight
+    100018: sofaCushionTopLeft
+    100020: sofaCushionTopRight
+    100022: sofaFoot01
+    100024: sofaFoot02
+    100026: sofaFoot03
+    100028: sofaFoot04
+    100030: sofaMetalFrame
+    400000: Group001
+    400002: //RootNode
+    400004: sofaArms
+    400006: sofaBack
+    400008: sofaBase
+    400010: sofaCushionBottomRight
+    400012: sofaCushionBottomRight 1
+    400014: sofaCushionMiddleLeft
+    400016: sofaCushionMiddleRight
+    400018: sofaCushionTopLeft
+    400020: sofaCushionTopRight
+    400022: sofaFoot01
+    400024: sofaFoot02
+    400026: sofaFoot03
+    400028: sofaFoot04
+    400030: sofaMetalFrame
+    2300000: sofaArms
+    2300002: sofaBack
+    2300004: sofaBase
+    2300006: sofaCushionBottomRight
+    2300008: sofaCushionBottomRight 1
+    2300010: sofaCushionMiddleLeft
+    2300012: sofaCushionMiddleRight
+    2300014: sofaCushionTopLeft
+    2300016: sofaCushionTopRight
+    2300018: sofaFoot01
+    2300020: sofaFoot02
+    2300022: sofaFoot03
+    2300024: sofaFoot04
+    2300026: sofaMetalFrame
+    3300000: sofaArms
+    3300002: sofaBack
+    3300004: sofaBase
+    3300006: sofaCushionBottomRight
+    3300008: sofaCushionBottomRight 1
+    3300010: sofaCushionMiddleLeft
+    3300012: sofaCushionMiddleRight
+    3300014: sofaCushionTopLeft
+    3300016: sofaCushionTopRight
+    3300018: sofaFoot01
+    3300020: sofaFoot02
+    3300022: sofaFoot03
+    3300024: sofaFoot04
+    3300026: sofaMetalFrame
+    4300000: sofaFoot02
+    4300002: sofaFoot03
+    4300004: sofaFoot04
+    4300006: sofaFoot01
+    4300008: sofaCushionMiddleRight
+    4300010: sofaCushionMiddleLeft
+    4300012: sofaBase
+    4300014: sofaBack
+    4300016: sofaCushionBottomRight
+    4300018: sofaMetalFrame
+    4300020: sofaCushionBottomRight
+    4300022: sofaCushionTopLeft
+    4300024: sofaArms
+    4300026: sofaCushionTopRight
+    9500000: //RootNode
+  materials:
+    importMaterials: 1
+    materialName: 0
+    materialSearch: 1
+  animations:
+    legacyGenerateAnimations: 4
+    bakeSimulation: 0
+    animationCompression: 1
+    animationRotationError: .5
+    animationPositionError: .5
+    animationScaleError: .5
+    animationWrapMode: 0
+    clipAnimations: []
+    isReadable: 1
+  meshes:
+    lODScreenPercentages: []
+    globalScale: .00999999978
+    meshCompression: 0
+    addColliders: 0
+    swapUVChannels: 0
+    generateSecondaryUV: 0
+    useFileUnits: 1
+    optimizeMeshForGPU: 1
+    secondaryUVAngleDistortion: 8
+    secondaryUVAreaDistortion: 15.000001
+    secondaryUVHardAngle: 88
+    secondaryUVPackMargin: 4
+  tangentSpace:
+    normalSmoothAngle: 60
+    splitTangentsAcrossUV: 1
+    normalImportMode: 0
+    tangentImportMode: 1
+  importAnimation: 1
+  copyAvatar: 0
+  humanDescription:
+    human: []
+    skeleton: []
+    handles: []
+    armTwist: .5
+    foreArmTwist: .5
+    upperLegTwist: .5
+    legTwist: .5
+    armStretch: .0500000007
+    legStretch: .0500000007
+    feetSpacing: 0
+    rootMotionBoneName: 
+  lastHumanDescriptionAvatarSource: {instanceID: 0}
+  additionalBone: 1
+  animationType: 2
+  userData: 
