@@ -13,7 +13,7 @@ class Entity extends MonoBehaviour
 	function Start()
 	{
 		mStateMachine = new StateMachine(this);
-		mStateMachine.ChangeState(new StateIdle());//M_FirstState);
+		mStateMachine.ChangeState(new StateShittyWander());//M_FirstState);
 	}
 	
 	//----------------------------------------------------------------------------//
