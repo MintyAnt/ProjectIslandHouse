@@ -12,7 +12,7 @@ class StateShittyWander extends State
 	function Enter(inEntity : Entity)
 	{
 		// Choose a new destination
-		mCurrentDestination = new Vector3(Random.Range(-4, 4), inEntity.transform.position.y, Random.Range(-4, 4));
+		mCurrentDestination = inEntity.transform.position + new Vector3(Random.Range(-4, 4), 0, Random.Range(-4, 4));
 	}
 	
 	//----------------------------------------------------------------------------//
@@ -27,7 +27,7 @@ class StateShittyWander extends State
 		
 		if (Vector3.Distance(mCurrentDestination, position) <= 1.0f)
 		{
-			mCurrentDestination = new Vector3(Random.Range(-4, 4), inEntity.transform.position.y, Random.Range(-4, 4));
+			mCurrentDestination = position + new Vector3(Random.Range(-4, 4), 0, Random.Range(-4, 4));
 		}
 	}
 	
