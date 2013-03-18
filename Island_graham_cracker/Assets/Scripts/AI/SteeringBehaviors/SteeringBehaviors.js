@@ -1,12 +1,13 @@
 
+
 //----------------------------------------------------------------------------//
 public enum eSteeringComponent
 {
 	// Usin dem bits to allow multiple states to be enabled
 	//at once, with a single variable.
-	Seek = 0x00000,
-	Flee = 0x00002,
-	Arrive = 0x00004
+	Seek = 0x00002,
+	Flee = 0x00004,
+	Arrive = 0x00008
 }
 
 //----------------------------------------------------------------------------//
@@ -155,8 +156,12 @@ class SteeringBehaviors
 		targetHeading.Normalize();
 		
 		var desiredVelocity : Vector2 = targetHeading * mOwner.GetMaxSpeed();
+		var offsetVelocity : Vector2 = desiredVelocity - mOwner.GetVelocity();
 		
-		return (desiredVelocity - mOwner.GetVelocity());
+		// Convert from m/s to newtons
+		var returnForce : Vector2 = offsetVelocity / Time.deltaTime;
+		returnForce *= mOwner.GetMass();
+		return offsetVelocity;
 	}
 	
 	//----------------------------------------------------------------------------//
@@ -174,6 +179,7 @@ class SteeringBehaviors
 	{
 		var vectorToTarget : Vector2 = inTargetPosition - mOwner.GetPosition2D();
 		
+		// m
 		var distanceToTarget : float = vectorToTarget.magnitude;
 		
 		if (distanceToTarget > 0)
@@ -181,17 +187,33 @@ class SteeringBehaviors
 			// eDecel is an int, use this to get it more precise.
 			var DECELERATION_TWEAKER : float  = 0.3f;
 			
+			// Fuck js
 			var speedAsInt : int = inDeceleration;
-			var speedToTarget : float = speedAsInt;
-			speedToTarget *= DECELERATION_TWEAKER;
-			speedToTarget = distanceToTarget / speedToTarget;
+			var speedDeceleration : float = speedAsInt;
+			Debug.Log("SpeedInt: " + speedAsInt + ", speedDeceleration: " + speedDeceleration);
+			
+			speedDeceleration *= DECELERATION_TWEAKER;
+			
+			// speed = distance / deceleration
+			// m/s = m / s?
+			var speedToTarget : float = distanceToTarget / speedDeceleration;
+			Debug.Log("Final Speed: " + speedToTarget);
 			
 			// Clamp speed to max speed
 			speedToTarget = Mathf.Min(speedToTarget, mOwner.GetMaxSpeed());
 			
+			// velocity = m/s
+			// velocity =  * m/s / m
+			//													m/s				m
+			//= 
 			var desiredVelocity : Vector2 = vectorToTarget * speedToTarget / distanceToTarget;
+			var offsetVelocity : Vector2 = desiredVelocity - mOwner.GetVelocity();
 			
-			return (desiredVelocity - mOwner.GetVelocity());
+			// Convert from m/s to newtons
+			var returnForce : Vector2 = offsetVelocity / Time.deltaTime;
+			returnForce *= mOwner.GetMass();
+			
+			return returnForce;
 		}
 		
 		return Vector2.zero;

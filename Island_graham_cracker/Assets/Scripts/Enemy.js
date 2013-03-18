@@ -3,11 +3,11 @@
 //----------------------------------------------------------------------------//
 class Enemy extends Entity
 {
-	protected var mVelocity : Vector2;
+	protected var mVelocity : Vector2 	= Vector2.zero;
 	protected var mMass : float			= 1.0f;
-	protected var mMaxSpeed : float		= 150.0f;
-	protected var mMaxForce : float		= 2.0f;
-	protected var mMaxTurnRate : float	= 1.0f;
+	protected var mMaxSpeed : float		= 5.0f;
+	protected var mMaxForce : float		= 10.0f;
+	protected var mMaxTurnRate : float	= 10.0f;
 	
 	protected var mSteering : SteeringBehaviors;
 	
@@ -26,7 +26,7 @@ class Enemy extends Entity
 		mSteering.Initialize(this);
 		
 		mSteering.EnableComponent(eSteeringComponent.Seek);
-		//mSteering.EnableComponent(eSteeringComponent.Arrive);
+		mSteering.EnableComponent(eSteeringComponent.Arrive);
 		
 		var destination : Vector2 = Vector2(M_ObjectToGoTo.position.x, M_ObjectToGoTo.position.z);
 		mSteering.SetSeekPoint(destination);
@@ -43,19 +43,33 @@ class Enemy extends Entity
 		mSteering.SetArrivePoint(destination);
 		
 		// Get the steering force from the current steering type.
+		// Should be in Newtons - kg * m/s^2
 		var steeringForce : Vector2 = mSteering.Calculate();
-		Debug.Log("Steering force: " + steeringForce);
 		
+		Debug.Log("Steering force: " + steeringForce + " Newtons");
+		
+		/*
+			F = M * A	=	Newtons (kg * m/s^2) = kg * m/s^2
+			A = F / M	=	m/s^2 = (kg * m/s^2) / kg
+						=	m/s^2 = m/s^2
+			
+		*/
 		var acceleration : Vector2 = steeringForce / mMass;
 		
+		/*
+			V = A * s
+			m/s = m/s^2 * s(but its ms)
+			m/s = m/s
+		*/
 		mVelocity += (acceleration * Time.deltaTime);
 		
 		// Don't exceed our max speed.
-		Vector2.ClampMagnitude(mVelocity, mMaxSpeed);
+		mVelocity = Vector2.ClampMagnitude(mVelocity, mMaxSpeed);
 		
 		// update the position
-		var currentPos : Vector3 = transform.position;
 		var velocityWithTime : Vector2 = mVelocity * Time.deltaTime;
+		
+		var currentPos : Vector3 = transform.position;
 		var vectorToAdd : Vector3 = Vector3(velocityWithTime.x, 0, velocityWithTime.y);
 		
 		currentPos += vectorToAdd;
